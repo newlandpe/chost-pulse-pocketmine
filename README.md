@@ -147,8 +147,3 @@ See [tests/README.md](tests/README.md) for detailed testing documentation.
 ## License
 
 See main repository LICENSE file
-
-## Support
-
-- GitHub Issues: [chost-pulse-specs](https://github.com/ChernegaSergiy/chost-pulse-specs)
-- Documentation: See main README.md
