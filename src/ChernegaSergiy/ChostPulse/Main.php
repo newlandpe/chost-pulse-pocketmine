@@ -30,7 +30,7 @@ class Main extends PluginBase {
         }
         
         // Initialize HTTP client
-        $apiUrl = $this->getConfig()->get("api_url", "https://mon.chost.pp.ua/api/heartbeat");
+        $apiUrl = $this->getConfig()->get("api_url", "https://your-domain.com/api/heartbeat");
         $this->client = new HeartbeatClient($apiUrl);
         
         // Schedule heartbeat task
@@ -116,7 +116,7 @@ class Main extends PluginBase {
     }
     
     private function displayBadgeUrls(): void {
-        $baseUrl = "https://mon.chost.pp.ua/api/badge";
+        $baseUrl = "https://your-domain.com/api/badge";
         $generator = new BadgeUrlGenerator($baseUrl, $this->publicId);
         
         $this->getLogger()->info("═══════════════════════════════════════════════════════════════");
