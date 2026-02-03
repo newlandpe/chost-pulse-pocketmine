@@ -40,10 +40,6 @@ debug: false
 
 ## Building from Source
 
-### Requirements
-- PHP 8.1+
-- PocketMine-MP DevTools
-
 ### Build Steps
 
 ```bash
@@ -134,13 +130,6 @@ vendor/bin/phpunit --coverage-html coverage/
 ### Invalid Token
 - Delete config.yml and restart server
 - Plugin will regenerate tokens automatically
-
-## Requirements
-
-- PocketMine-MP 5.30.0+
-- PHP 8.1+
-- cURL extension
-- Internet connection
 
 ## Contributing
 
