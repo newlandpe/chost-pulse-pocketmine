@@ -2,7 +2,7 @@
     "name": "chernegasergiy/chostpulse",
     "description": "Decentralized server monitoring via Cloudflare Workers",
     "type": "library",
-    "license": "MIT",
+    "license": "LicenseRef-CSSM-Unlimited-2.0",
     "authors": [
         {
             "name": "Serhii Cherneha",
