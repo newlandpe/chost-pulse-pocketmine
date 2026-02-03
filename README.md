@@ -64,17 +64,17 @@ cp ChostPulse.phar /path/to/server/plugins/
 After starting the plugin, badge URLs will appear in console:
 
 ```
-Status:   https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=status
-Players:  https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=players
-TPS:      https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=tps
-Software: https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=software
+Status:   https://your-domain.com/api/badge?id=srv_pub_xxx&type=status
+Players:  https://your-domain.com/api/badge?id=srv_pub_xxx&type=players
+TPS:      https://your-domain.com/api/badge?id=srv_pub_xxx&type=tps
+Software: https://your-domain.com/api/badge?id=srv_pub_xxx&type=software
 ```
 
 ### Markdown Example
 
 ```markdown
-![Server Status](https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=status)
-![Players](https://mon.chost.pp.ua/api/badge?id=srv_pub_xxx&type=players)
+![Server Status](https://your-domain.com/api/badge?id=srv_pub_xxx&type=status)
+![Players](https://your-domain.com/api/badge?id=srv_pub_xxx&type=players)
 ```
 
 ## API Reference
