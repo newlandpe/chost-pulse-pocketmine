@@ -1,0 +1,17 @@
+# Chost Pulse Configuration
+# This is your SECRET Key. Do not share it with anyone.
+# It is used to authenticate data updates.
+# Leave empty to auto-generate on first run
+token: ""
+
+# Cloudflare Worker API endpoint
+api_url: "https://mon.chost.pp.ua/api/heartbeat"
+
+# Update interval (in seconds)
+interval: 60
+
+# Send server software information? (For extended stats)
+send-software: true
+
+# Enable debug logging
+debug: false
