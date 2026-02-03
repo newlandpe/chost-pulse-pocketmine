@@ -5,7 +5,7 @@
 token: ""
 
 # Cloudflare Worker API endpoint
-api_url: "https://mon.chost.pp.ua/api/heartbeat"
+api_url: "https://your-domain.com/api/heartbeat"
 
 # Update interval (in seconds)
 interval: 60
