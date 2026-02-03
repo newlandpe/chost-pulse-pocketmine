@@ -4,7 +4,7 @@ api: 5.30.0
 main: ChernegaSergiy\ChostPulse\Main
 author: ChernegaSergiy
 description: Decentralized server monitoring via Cloudflare Workers
-website: https://github.com/ChernegaSergiy/chost-pulse
+website: https://github.com/newlandpe/chost-pulse-pocketmine
 
 permissions:
   chostpulse.admin:
