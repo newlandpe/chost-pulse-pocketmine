@@ -26,7 +26,7 @@ Edit `plugins/ChostPulse/config.yml`:
 token: "sk_live_550e8400-e29b-41d4-a716-446655440000"
 
 # API endpoint
-api_url: "https://mon.chost.pp.ua/api/heartbeat"
+api_url: "https://your-domain.com/api/heartbeat"
 
 # Update interval in seconds
 interval: 60
