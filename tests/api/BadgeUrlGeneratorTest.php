@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class BadgeUrlGeneratorTest extends TestCase
 {
     private BadgeUrlGenerator $generator;
-    private string $baseUrl = 'https://mon.chost.pp.ua/api/badge';
+    private string $baseUrl = 'https://your-domain.com/api/badge';
     private string $publicId = 'srv_pub_f8a92b3c4d5e';
 
     protected function setUp(): void
@@ -20,7 +20,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetStatusBadge(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=status';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=status';
         $actual = $this->generator->getStatusBadge();
         
         $this->assertEquals($expected, $actual);
@@ -28,7 +28,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetPlayersBadge(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=players';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=players';
         $actual = $this->generator->getPlayersBadge();
         
         $this->assertEquals($expected, $actual);
@@ -36,7 +36,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetTpsBadge(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=tps';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=tps';
         $actual = $this->generator->getTpsBadge();
         
         $this->assertEquals($expected, $actual);
@@ -44,7 +44,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetSoftwareBadge(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=software';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=software';
         $actual = $this->generator->getSoftwareBadge();
         
         $this->assertEquals($expected, $actual);
@@ -52,7 +52,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetCustomBadge(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=custom';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=custom';
         $actual = $this->generator->getCustomBadge('custom');
         
         $this->assertEquals($expected, $actual);
@@ -60,7 +60,7 @@ class BadgeUrlGeneratorTest extends TestCase
 
     public function testGetCustomBadgeWithVersion(): void
     {
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=version';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=version';
         $actual = $this->generator->getCustomBadge('version');
         
         $this->assertEquals($expected, $actual);
@@ -69,11 +69,11 @@ class BadgeUrlGeneratorTest extends TestCase
     public function testTrailingSlashIsRemoved(): void
     {
         $generatorWithSlash = new BadgeUrlGenerator(
-            'https://mon.chost.pp.ua/api/badge/',
+            'https://your-domain.com/api/badge/',
             $this->publicId
         );
         
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=status';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=status';
         $actual = $generatorWithSlash->getStatusBadge();
         
         $this->assertEquals($expected, $actual);
@@ -82,11 +82,11 @@ class BadgeUrlGeneratorTest extends TestCase
     public function testMultipleTrailingSlashesAreRemoved(): void
     {
         $generatorWithSlashes = new BadgeUrlGenerator(
-            'https://mon.chost.pp.ua/api/badge///',
+            'https://your-domain.com/api/badge///',
             $this->publicId
         );
         
-        $expected = 'https://mon.chost.pp.ua/api/badge?id=srv_pub_f8a92b3c4d5e&type=players';
+        $expected = 'https://your-domain.com/api/badge?id=srv_pub_f8a92b3c4d5e&type=players';
         $actual = $generatorWithSlashes->getPlayersBadge();
         
         $this->assertEquals($expected, $actual);
@@ -129,7 +129,7 @@ class BadgeUrlGeneratorTest extends TestCase
         $url = $this->generator->getStatusBadge();
         
         // Check that URL contains base URL
-        $this->assertStringContainsString('mon.chost.pp.ua/api/badge', $url);
+        $this->assertStringContainsString('your-domain.com/api/badge', $url);
         
         // Check that URL contains public ID
         $this->assertStringContainsString('id=srv_pub_f8a92b3c4d5e', $url);
