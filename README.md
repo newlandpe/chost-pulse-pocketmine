@@ -124,8 +124,6 @@ vendor/bin/phpunit --coverage-html coverage/
 - **KeyValidatorTest** (14 tests): Token format validation and edge cases
 - **BadgeUrlGeneratorTest** (12 tests): Badge URL generation and formatting
 
-See [tests/README.md](tests/README.md) for detailed testing documentation.
-
 ## Troubleshooting
 
 ### Heartbeat Failed
