@@ -146,4 +146,4 @@ See [tests/README.md](tests/README.md) for detailed testing documentation.
 
 ## License
 
-See main repository LICENSE file
+This project is licensed under the CSSM Unlimited License v2.0 (CSSM-ULv2). Please note that this is a custom license. See the [LICENSE](LICENSE) file for details.
