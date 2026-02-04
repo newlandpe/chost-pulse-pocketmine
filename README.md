@@ -1,14 +1,16 @@
 # ChostPulse - PocketMine-MP Plugin
 
-Decentralized server monitoring plugin for PocketMine-MP 5.30+
+ChostPulse is a high-performance telemetry bridge for PocketMine-MP servers that synchronizes real-time server metrics with the ChostPulse monitoring network. It provides a non-blocking, asynchronous approach to server status tracking, ensuring that monitoring overhead never impacts game performance.
 
 ## Features
 
-- **Automatic Token Generation**: Generates secure tokens on first run
-- **Async HTTP Requests**: Non-blocking heartbeat updates
-- **Server Statistics**: Tracks players, TPS, and server info
-- **Badge URLs**: Auto-generates GitHub badge URLs
-- **Zero Configuration**: Works out of the box
+- **Asynchronous Heartbeat Engine**: Implements non-blocking HTTP clients to transmit server telemetry, preventing main-thread stalls and maintaining consistent TPS during network operations.
+- **Automated Cryptographic Identity**: Generates unique `sk_live_` secret tokens and derived public IDs on the first boot, establishing a secure handshake with the edge monitoring API.
+- **Deep Metrics Extraction**: Collects and formats granular server data, including player counts, tick rates (TPS), software versions, and network protocols for precise dashboard rendering.
+- **Dynamic Badge Integration**: Automatically calculates and provides GitHub-ready SVG badge URLs via the server console, allowing for instant "Live Status" embedding in project documentation.
+- **Zero-Configuration Deployment**: Features a "drop-and-run" architecture that requires no manual setup for standard environments, with sane defaults for heartbeat intervals and data privacy.
+- **Resource-Efficient Monitoring**: Optimized for low-memory environments, using minimal object allocations and periodic task scheduling to reduce CPU footprint.
+- **Resilient Error Handling**: Built-in validation for API responses and token integrity, with automatic retry logic and detailed debug logging for troubleshooting.
 
 ## Installation
 
