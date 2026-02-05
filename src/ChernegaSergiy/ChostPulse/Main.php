@@ -125,6 +125,7 @@ class Main extends PluginBase {
         $this->getLogger()->info("Players:  " . $generator->getPlayersBadge());
         $this->getLogger()->info("TPS:      " . $generator->getTpsBadge());
         $this->getLogger()->info("Software: " . $generator->getSoftwareBadge());
+        $this->getLogger()->info("Version:  " . $generator->getVersionBadge());
         $this->getLogger()->info("═══════════════════════════════════════════════════════════════");
     }
     
