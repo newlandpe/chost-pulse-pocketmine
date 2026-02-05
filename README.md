@@ -122,12 +122,6 @@ vendor/bin/phpunit tests/security/TokenGeneratorTest.php
 vendor/bin/phpunit --coverage-html coverage/
 ```
 
-### Test Coverage
-
-- **TokenGeneratorTest** (10 tests): Secret key generation and public ID derivation
-- **KeyValidatorTest** (14 tests): Token format validation and edge cases
-- **BadgeUrlGeneratorTest** (12 tests): Badge URL generation and formatting
-
 ## Troubleshooting
 
 ### Heartbeat Failed
