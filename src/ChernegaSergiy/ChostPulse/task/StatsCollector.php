@@ -11,13 +11,15 @@ class StatsCollector {
     
     public static function collect(Server $server, Config $config): array {
         $sendSoftware = $config->get("send-software", true);
+        $interval = (int) $config->get("interval", 60);
         
         $data = [
             "status" => "online",
             "players" => count($server->getOnlinePlayers()),
-            "max_players" => $server->getMaxPlayers(),
+            "maxPlayers" => $server->getMaxPlayers(),
             "tps" => round($server->getTicksPerSecond(), 2),
-            "version" => $server->getVersion()
+            "version" => $server->getMinecraftVersion(),
+            "heartbeatIntervalSec" => $interval
         ];
         
         if ($sendSoftware) {
