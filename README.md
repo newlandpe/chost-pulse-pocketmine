@@ -83,15 +83,58 @@ Software: https://your-domain.com/api/badge?id=srv_pub_xxx&type=software
 
 ## API Reference
 
-### Classes
+### `ChernegaSergiy\ChostPulse\Main`
 
-- **Main**: Plugin entry point and lifecycle management
-- **HeartbeatTask**: Async HTTP request handler
-- **StatsCollector**: Server metrics collection
-- **TokenGenerator**: Secret key and public ID generation
-- **KeyValidator**: Token format validation
-- **HeartbeatClient**: HTTP client wrapper
-- **BadgeUrlGenerator**: Badge URL helper
+The plugin entry point that manages the lifecycle and coordinates heartbeat tasks.
+
+- `onEnable(): void`: Initializes configuration, generates/loads tokens, and schedules periodic heartbeat tasks.
+- `onDisable(): void`: Handles plugin shutdown.
+
+### `ChernegaSergiy\ChostPulse\task\StatsCollector`
+
+A utility class for gathering real-time server metrics.
+
+- `static collect(Server $server, Config $config): array`: Aggregates server status, player counts, TPS, and version info into an associative array for the API.
+
+### `ChernegaSergiy\ChostPulse\task\HeartbeatTask`
+
+An asynchronous task that transmits telemetry data to the edge API.
+
+- `__construct(string $url, array $data)`: Initializes the task with the target API URL and the telemetry payload.
+- `onRun(): void`: Executes the cURL request in a separate thread.
+- `onCompletion(): void`: Processes the API response and logs errors if the heartbeat fails.
+
+### `ChernegaSergiy\ChostPulse\security\TokenGenerator`
+
+Handles the creation and derivation of cryptographic identities.
+
+- `generateSecretKey(): string`: Generates a secure `sk_live_` secret token based on UUID v4.
+- `derivePublicId(string $secretToken): string`: Derives a 12-character `srv_pub_` public ID from a secret token using SHA-256.
+
+### `ChernegaSergiy\ChostPulse\security\KeyValidator`
+
+Provides validation logic for secret tokens.
+
+- `static isValidSecretToken(string $token): bool`: Verifies if a given string follows the `sk_live_` prefix and UUID v4 format.
+
+### `ChernegaSergiy\ChostPulse\api\BadgeUrlGenerator`
+
+A helper class for constructing monitoring badge URLs.
+
+- `__construct(string $baseUrl, string $publicId)`: Initializes the generator with the API base URL and the server's public ID.
+- `getStatusBadge(): string`: Returns the URL for the server status badge.
+- `getPlayersBadge(): string`: Returns the URL for the online players count badge.
+- `getTpsBadge(): string`: Returns the URL for the server performance (TPS) badge.
+- `getSoftwareBadge(): string`: Returns the URL for the server software badge.
+- `getVersionBadge(): string`: Returns the URL for the server version badge.
+- `getCustomBadge(string $type): string`: Returns a badge URL for a specific metric type.
+
+### `ChernegaSergiy\ChostPulse\api\HeartbeatClient`
+
+A simple wrapper for the API endpoint configuration.
+
+- `__construct(string $url)`: Sets the heartbeat API endpoint URL.
+- `getUrl(): string`: Returns the configured API URL.
 
 ## Security
 
