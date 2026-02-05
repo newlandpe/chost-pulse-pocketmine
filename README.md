@@ -140,9 +140,19 @@ A simple wrapper for the API endpoint configuration.
 
 ## Security
 
-- **Secret Token** (`sk_live_xxx`): Stored in config.yml, used for writing data
-- **Public ID** (`srv_pub_xxx`): Derived via SHA-256, used in badge URLs
-- **One-way Hash**: Public ID cannot be reverse-engineered to get secret token
+### Token-Based Authentication
+
+The plugin employs a dual-token system to ensure data integrity while keeping sensitive keys private.
+
+- **Secret Token (`sk_live_<uuid>`)**: A unique, UUID v4-based key generated on the first run. It is stored in `config.yml` and must be kept private, as it grants authorization to update server metrics via the API.
+- **Public ID (`srv_pub_<hash>`)**: A publicly shareable identifier derived from the secret token. It is used in badge URLs to retrieve and display server statistics without exposing the secret key.
+
+### Cryptographic Derivation
+
+To prevent reverse-engineering and unauthorized data manipulation, the plugin uses one-way hashing for identity management.
+
+- **SHA-256 Hashing**: The Public ID is derived by stripping the `sk_live_` prefix from the secret token and hashing the remaining UUID with SHA-256. The first 12 characters of the resulting hex string are used as the unique server identifier.
+- **Data Isolation**: The edge API only knows the Public ID for data retrieval. Even if a Public ID is compromised, it is mathematically infeasible to derive the original Secret Token, ensuring that your server's telemetry remains protected.
 
 ## Testing
 
