@@ -152,7 +152,7 @@ The plugin employs a dual-token system to ensure data integrity while keeping se
 To prevent reverse-engineering and unauthorized data manipulation, the plugin uses one-way hashing for identity management.
 
 - **SHA-256 Hashing**: The Public ID is derived by stripping the `sk_live_` prefix from the secret token and hashing the remaining UUID with SHA-256. The first 12 characters of the resulting hex string are used as the unique server identifier.
-- **Data Isolation**: The edge API only knows the Public ID for data retrieval. Even if a Public ID is compromised, it is mathematically infeasible to derive the original Secret Token, ensuring that your server's telemetry remains protected.
+- **Data Isolation**: The edge API only uses the Public ID for data retrieval. Since the Public ID is cryptographically decoupled from the Secret Token, its public availability does not allow unauthorized parties to forge server telemetry or derive the original secret key.
 
 ## Testing
 
