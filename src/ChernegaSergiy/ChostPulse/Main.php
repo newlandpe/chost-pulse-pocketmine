@@ -50,15 +50,9 @@ class Main extends PluginBase {
         $this->getConfig()->set("token", $this->secretToken);
         $this->getConfig()->save();
         
-        $this->getLogger()->notice("╔════════════════════════════════════════════════════════════════╗");
-        $this->getLogger()->notice("║ Generated new secret token for ChostPulse                     ║");
-        $this->getLogger()->notice("╠════════════════════════════════════════════════════════════════╣");
-        $this->getLogger()->notice("║ Secret Token: " . $this->secretToken);
-        $this->getLogger()->notice("║ Public ID:    " . $this->publicId);
-        $this->getLogger()->notice("╠════════════════════════════════════════════════════════════════╣");
-        $this->getLogger()->notice("║ ⚠️  IMPORTANT: Keep your secret token private!                 ║");
-        $this->getLogger()->notice("║    Use the Public ID in your badge URLs.                      ║");
-        $this->getLogger()->notice("╚════════════════════════════════════════════════════════════════╝");
+        $this->getLogger()->notice("Generated new secret token: " . $this->secretToken);
+        $this->getLogger()->notice("Public ID: " . $this->publicId);
+        $this->getLogger()->notice("Keep your secret token private! Use the Public ID in your badge URLs.");
     }
     
     private function loadTokens(): void {
@@ -119,14 +113,12 @@ class Main extends PluginBase {
         $baseUrl = "https://your-domain.com/api/badge";
         $generator = new BadgeUrlGenerator($baseUrl, $this->publicId);
         
-        $this->getLogger()->info("═══════════════════════════════════════════════════════════════");
         $this->getLogger()->info("Your Badge URLs:");
         $this->getLogger()->info("Status:   " . $generator->getStatusBadge());
         $this->getLogger()->info("Players:  " . $generator->getPlayersBadge());
         $this->getLogger()->info("TPS:      " . $generator->getTpsBadge());
         $this->getLogger()->info("Software: " . $generator->getSoftwareBadge());
         $this->getLogger()->info("Version:  " . $generator->getVersionBadge());
-        $this->getLogger()->info("═══════════════════════════════════════════════════════════════");
     }
     
     public function onDisable(): void {
