@@ -14,10 +14,16 @@ ChostPulse is a high-performance telemetry bridge for PocketMine-MP servers that
 
 ## Installation
 
-1. Download `ChostPulse.phar` from releases
-2. Place in your server's `plugins/` folder
-3. Start/restart your server
-4. Copy the badge URLs from console
+Follow these quick steps to get the telemetry bridge running on your server:
+
+1. Download the latest `ChostPulse.phar` from the official releases page.
+2. Place the Phar file into your PocketMine-MP `plugins/` directory.
+3. Start or reload PocketMine-MP. The console should log:
+   ```
+   [ChostPulse] Your Badge URLs:
+   [ChostPulse] Status:   https://your-domain.com/api/badge?id=srv_pub_...&type=status
+   ```
+4. Copy the Badge URLs from the console to confirm the plugin is working and use them in your documentation.
 
 ## Configuration
 
