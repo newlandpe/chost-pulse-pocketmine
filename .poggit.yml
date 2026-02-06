@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/newlandpe/chost-pulse-pocketmine
+build-by-default: true
+branches:
+- main
+projects:
+  chost-pulse-pocketmine:
+    path: ""
