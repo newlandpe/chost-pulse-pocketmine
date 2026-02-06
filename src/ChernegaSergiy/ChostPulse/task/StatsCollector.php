@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ChernegaSergiy\ChostPulse\task;
 
 use pocketmine\Server;
+use pocketmine\network\mcpe\protocol\ProtocolInfo
 use pocketmine\utils\Config;
 
 class StatsCollector {
@@ -18,7 +19,7 @@ class StatsCollector {
             "players" => count($server->getOnlinePlayers()),
             "maxPlayers" => $server->getMaxPlayers(),
             "tps" => round($server->getTicksPerSecond(), 2),
-            "version" => $server->getMinecraftVersion(),
+            "version" => ProtocolInfo::MINECRAFT_VERSION_NETWORK,
             "heartbeatIntervalSec" => $interval
         ];
         
