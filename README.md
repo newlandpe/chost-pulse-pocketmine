@@ -1,6 +1,6 @@
 # ChostPulse - PocketMine-MP Plugin
 
-[![Poggit CI](https://poggit.pmmp.io/ci.shield/newlandpe/ChostPulse/ChostPulse)](https://poggit.pmmp.io/ci/newlandpe/ChostPulse/ChostPulse)
+[![Poggit CI](https://poggit.pmmp.io/ci.shield/newlandpe/chost-pulse-pocketmine/ChostPulse)](https://poggit.pmmp.io/ci/newlandpe/chost-pulse-pocketmine/ChostPulse)
 
 ChostPulse is a high-performance telemetry bridge for PocketMine-MP servers that synchronizes real-time server metrics with the ChostPulse monitoring network. It provides a non-blocking, asynchronous approach to server status tracking, ensuring that monitoring overhead never impacts game performance.
 
